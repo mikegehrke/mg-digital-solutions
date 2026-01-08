@@ -25,25 +25,23 @@ function useScrollAnimation() {
   return [ref, isVisible]
 }
 
-const stepIcons = [
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-  </svg>,
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <polyline points="16 18 22 12 16 6"/>
-    <polyline points="8 6 2 12 8 18"/>
-  </svg>,
-  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-    <polyline points="22 4 12 14.01 9 11.01"/>
-  </svg>
-]
-
 function Process() {
   const { translations } = useLanguage()
   const { process } = translations
   const [headerRef, headerVisible] = useScrollAnimation()
   const [stepsRef, stepsVisible] = useScrollAnimation()
+  const [activeStep, setActiveStep] = useState(0)
+
+  // Auto-advance animation
+  useEffect(() => {
+    if (!stepsVisible) return
+    const interval = setInterval(() => {
+      setActiveStep(prev => (prev + 1) % 3)
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [stepsVisible])
+
+  const icons = ['💬', '⚡', '✓']
 
   return (
     <section className="section process" id="process">
@@ -53,31 +51,41 @@ function Process() {
           className={`section-header animate-on-scroll ${headerVisible ? 'visible' : ''}`}
         >
           <span className="section-label">{process.label}</span>
-          <h2 className="section-title">{process.title}</h2>
-          <p className="section-description">
-            {process.description}
-          </p>
+          <h2 className="section-title process-title">{process.title}</h2>
+          <p className="section-description">{process.description}</p>
         </div>
         
         <div 
           ref={stepsRef}
-          className={`process-steps stagger-children ${stepsVisible ? 'visible' : ''}`}
+          className={`process-container ${stepsVisible ? 'visible' : ''}`}
         >
-          {process.steps.map((step, index) => (
-            <div className="process-step" key={index}>
-              <div className="step-icon-wrapper">
+          {/* Progress Line */}
+          <div className="process-line">
+            <div 
+              className="process-line-fill" 
+              style={{ width: `${((activeStep + 1) / 3) * 100}%` }}
+            />
+          </div>
+
+          {/* Steps */}
+          <div className="process-steps">
+            {process.steps.map((step, index) => (
+              <div 
+                key={index}
+                className={`process-step ${index <= activeStep ? 'active' : ''} ${index === activeStep ? 'current' : ''}`}
+                onClick={() => setActiveStep(index)}
+              >
                 <div className="step-icon">
-                  {stepIcons[index]}
+                  <span>{icons[index]}</span>
                 </div>
-                {index < process.steps.length - 1 && <div className="step-connector" />}
+                <div className="step-content">
+                  <span className="step-number">{step.number}</span>
+                  <h3 className="step-title">{step.title}</h3>
+                  <p className="step-description">{step.description}</p>
+                </div>
               </div>
-              <div className="step-content">
-                <span className="step-number">{step.number}</span>
-                <h3 className="step-title">{step.title}</h3>
-                <p className="step-description">{step.description}</p>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -4,6 +4,9 @@ import { LanguageProvider } from './context/LanguageContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Services from './components/Services'
+import PricingBuilder from './components/PricingBuilder'
+import ROICalculator from './components/ROICalculator'
+import EfficiencyComparison from './components/EfficiencyComparison'
 import Demos from './components/Demos'
 import WhyMe from './components/WhyMe'
 import Process from './components/Process'
@@ -48,6 +51,9 @@ function App() {
         <main>
           <Hero />
           <Services />
+          <PricingBuilder />
+          <ROICalculator />
+          <EfficiencyComparison />
           <Demos />
           <WhyMe />
           <Process />

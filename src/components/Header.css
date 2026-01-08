@@ -80,6 +80,7 @@
 }
 
 .nav-link {
+  position: relative;
   padding: 10px 16px;
   font-size: 14px;
   font-weight: 500;
@@ -91,9 +92,30 @@
   transition: all var(--transition-fast);
 }
 
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, #a78bfa);
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 60%;
+}
+
 .nav-link:hover {
   color: var(--color-text);
-  background: var(--color-bg-tertiary);
+}
+
+.nav-link.active {
+  color: #a78bfa;
 }
 
 /* Header Actions */

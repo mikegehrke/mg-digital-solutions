@@ -10,6 +10,29 @@ function Footer() {
     window.location.hash = hash
     window.scrollTo(0, 0)
   }
+
+  const handleSectionClick = (e, sectionId) => {
+    e.preventDefault()
+    // Prüfen ob wir auf einer Legal-Seite sind
+    const currentHash = window.location.hash
+    if (currentHash === '#impressum' || currentHash === '#datenschutz' || 
+        currentHash === '#imprint' || currentHash === '#privacy') {
+      // Zuerst zur Startseite, dann zum Abschnitt
+      window.location.hash = ''
+      setTimeout(() => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 100)
+    } else {
+      // Auf Startseite - direkt scrollen
+      const element = document.getElementById(sectionId)
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
   
   return (
     <footer className="footer">
@@ -34,10 +57,10 @@ function Footer() {
             <div className="footer-column">
               <h4>{t('footer.services')}</h4>
               <ul>
-                <li><a href="#services">{t('footer.websites')}</a></li>
-                <li><a href="#services">{t('footer.webapps')}</a></li>
-                <li><a href="#services">{t('footer.prototypes')}</a></li>
-                <li><a href="#services">{t('footer.automation')}</a></li>
+                <li><a href="#services" onClick={(e) => handleSectionClick(e, 'services')}>{t('footer.websites')}</a></li>
+                <li><a href="#services" onClick={(e) => handleSectionClick(e, 'services')}>{t('footer.webapps')}</a></li>
+                <li><a href="#demos" onClick={(e) => handleSectionClick(e, 'demos')}>{t('footer.prototypes')}</a></li>
+                <li><a href="#services" onClick={(e) => handleSectionClick(e, 'services')}>{t('footer.automation')}</a></li>
               </ul>
             </div>
             

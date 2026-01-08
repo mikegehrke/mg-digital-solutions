@@ -5,11 +5,25 @@ import './Header.css'
 function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activeSection, setActiveSection] = useState('')
   const { language, toggleLanguage, t } = useLanguage()
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
+      
+      // Track active section
+      const sections = ['services', 'demos', 'process', 'contact']
+      for (const section of sections) {
+        const element = document.getElementById(section)
+        if (element) {
+          const rect = element.getBoundingClientRect()
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            setActiveSection(section)
+            break
+          }
+        }
+      }
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -20,13 +34,14 @@ function Header() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
       setMobileMenuOpen(false)
+      setActiveSection(id)
     }
   }
 
   return (
     <header className={`header ${scrolled ? 'header-scrolled' : ''}`}>
       <div className="header-container">
-        <a href="#" className="logo" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+        <a href="#" className="logo" onClick={() => { window.scrollTo({ top: 0, behavior: 'smooth' }); setActiveSection(''); }}>
           <div className="logo-icon">
             <span>MG</span>
           </div>
@@ -37,10 +52,10 @@ function Header() {
         </a>
 
         <nav className={`nav ${mobileMenuOpen ? 'nav-open' : ''}`}>
-          <button className="nav-link" onClick={() => scrollToSection('services')}>{t('nav.services')}</button>
-          <button className="nav-link" onClick={() => scrollToSection('demos')}>{t('nav.demos')}</button>
-          <button className="nav-link" onClick={() => scrollToSection('process')}>{t('nav.process')}</button>
-          <button className="nav-link" onClick={() => scrollToSection('contact')}>{t('nav.contact')}</button>
+          <button className={`nav-link ${activeSection === 'services' ? 'active' : ''}`} onClick={() => scrollToSection('services')}>{t('nav.services')}</button>
+          <button className={`nav-link ${activeSection === 'demos' ? 'active' : ''}`} onClick={() => scrollToSection('demos')}>{t('nav.demos')}</button>
+          <button className={`nav-link ${activeSection === 'process' ? 'active' : ''}`} onClick={() => scrollToSection('process')}>{t('nav.process')}</button>
+          <button className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => scrollToSection('contact')}>{t('nav.contact')}</button>
         </nav>
 
         <div className="header-actions">
