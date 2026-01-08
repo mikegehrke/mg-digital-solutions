@@ -1,5 +1,29 @@
+import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import './Services.css'
+
+function useScrollAnimation() {
+  const ref = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(element)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  return [ref, isVisible]
+}
 
 const serviceIcons = [
   <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -30,11 +54,16 @@ const serviceIcons = [
 function Services() {
   const { translations } = useLanguage()
   const { services } = translations
+  const [headerRef, headerVisible] = useScrollAnimation()
+  const [gridRef, gridVisible] = useScrollAnimation()
 
   return (
     <section className="section services" id="services">
       <div className="container">
-        <div className="section-header">
+        <div 
+          ref={headerRef}
+          className={`section-header animate-on-scroll ${headerVisible ? 'visible' : ''}`}
+        >
           <span className="section-label">{services.label}</span>
           <h2 className="section-title">{services.title}</h2>
           <p className="section-description">
@@ -42,9 +71,12 @@ function Services() {
           </p>
         </div>
         
-        <div className="services-grid">
+        <div 
+          ref={gridRef}
+          className={`services-grid stagger-children ${gridVisible ? 'visible' : ''}`}
+        >
           {services.items.map((service, index) => (
-            <div className="service-card" key={index}>
+            <div className="service-card hover-lift" key={index}>
               <div className="service-icon">
                 {serviceIcons[index]}
               </div>

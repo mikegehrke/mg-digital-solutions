@@ -1,5 +1,29 @@
+import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import './Process.css'
+
+function useScrollAnimation() {
+  const ref = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(element)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  return [ref, isVisible]
+}
 
 const stepIcons = [
   <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -18,11 +42,16 @@ const stepIcons = [
 function Process() {
   const { translations } = useLanguage()
   const { process } = translations
+  const [headerRef, headerVisible] = useScrollAnimation()
+  const [stepsRef, stepsVisible] = useScrollAnimation()
 
   return (
     <section className="section process" id="process">
       <div className="container">
-        <div className="section-header">
+        <div 
+          ref={headerRef}
+          className={`section-header animate-on-scroll ${headerVisible ? 'visible' : ''}`}
+        >
           <span className="section-label">{process.label}</span>
           <h2 className="section-title">{process.title}</h2>
           <p className="section-description">
@@ -30,7 +59,10 @@ function Process() {
           </p>
         </div>
         
-        <div className="process-steps">
+        <div 
+          ref={stepsRef}
+          className={`process-steps stagger-children ${stepsVisible ? 'visible' : ''}`}
+        >
           {process.steps.map((step, index) => (
             <div className="process-step" key={index}>
               <div className="step-icon-wrapper">

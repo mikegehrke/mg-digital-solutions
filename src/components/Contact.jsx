@@ -1,11 +1,36 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import './Contact.css'
+
+function useScrollAnimation() {
+  const ref = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(element)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  return [ref, isVisible]
+}
 
 function Contact() {
   const { translations: t } = useLanguage()
   const c = t.contact || {}
   const f = c.form || {}
+  const [infoRef, infoVisible] = useScrollAnimation()
+  const [formRef, formVisible] = useScrollAnimation()
   
   const [formData, setFormData] = useState({
     name: '',
@@ -41,7 +66,10 @@ function Contact() {
     <section className="section contact" id="contact">
       <div className="container">
         <div className="contact-wrapper">
-          <div className="contact-info">
+          <div 
+            ref={infoRef}
+            className={`contact-info animate-on-scroll from-left ${infoVisible ? 'visible' : ''}`}
+          >
             <span className="section-label">{c.label || 'Kontakt'}</span>
             <h2 className="contact-title">{c.title || 'Lassen Sie uns sprechen'}</h2>
             <p className="contact-description">
@@ -115,7 +143,10 @@ function Contact() {
             </div>
           </div>
           
-          <div className="contact-form-wrapper">
+          <div 
+            ref={formRef}
+            className={`contact-form-wrapper animate-on-scroll from-right ${formVisible ? 'visible' : ''}`}
+          >
             <form className="contact-form" onSubmit={handleSubmit}>
               <div className="form-group">
                 <label htmlFor="name">{f.name || 'Name'}</label>

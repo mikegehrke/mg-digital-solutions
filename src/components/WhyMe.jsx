@@ -1,5 +1,29 @@
+import { useEffect, useRef, useState } from 'react'
 import { useLanguage } from '../context/LanguageContext'
 import './WhyMe.css'
+
+function useScrollAnimation() {
+  const ref = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+          observer.unobserve(element)
+        }
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    )
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  return [ref, isVisible]
+}
 
 const reasonIcons = [
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -31,11 +55,16 @@ const reasonIcons = [
 function WhyMe() {
   const { translations } = useLanguage()
   const { whyMe } = translations
+  const [headerRef, headerVisible] = useScrollAnimation()
+  const [gridRef, gridVisible] = useScrollAnimation()
 
   return (
     <section className="section why-me" id="why-me">
       <div className="container">
-        <div className="section-header">
+        <div 
+          ref={headerRef}
+          className={`section-header animate-on-scroll ${headerVisible ? 'visible' : ''}`}
+        >
           <span className="section-label">{whyMe.label}</span>
           <h2 className="section-title">{whyMe.title}</h2>
           <p className="section-description">
@@ -43,9 +72,12 @@ function WhyMe() {
           </p>
         </div>
         
-        <div className="why-me-grid">
+        <div 
+          ref={gridRef}
+          className={`why-me-grid stagger-children ${gridVisible ? 'visible' : ''}`}
+        >
           {whyMe.reasons.map((reason, index) => (
-            <div className="reason-card" key={index}>
+            <div className="reason-card hover-lift" key={index}>
               <div className="reason-icon">
                 {reasonIcons[index]}
               </div>
