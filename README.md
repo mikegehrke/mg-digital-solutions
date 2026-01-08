@@ -1,16 +1,98 @@
-# React + Vite
+# Mike Gehrke · Digital Solutions
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Professionelle Marketing-Website für digitale Dienstleistungen – Webseiten, Web-Apps, App-Prototypen und Automatisierung.
 
-Currently, two official plugins are available:
+![Vite](https://img.shields.io/badge/Vite-7.x-646CFF?logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Zweisprachig (DE/EN)** – Vollständige Sprachumschaltung für alle Inhalte
+- **4 Live-Demos** – Interaktive, funktionierende Beispiele:
+  - Business Website Demo
+  - Buchungssystem (Web-App)
+  - Fitness Tracker (App-Prototyp)
+  - Intelligentes Anfrage-Formular
+- **Light/Dark Mode** – Theme-Toggle in allen Demos
+- **Responsive Design** – Optimiert für Desktop, Tablet und Mobile
+- **Moderne UI** – Apple/Stripe-inspiriertes Design
+- **Kontaktformular** – Mit Validierung und Erfolgsmeldung
+- **OpenStreetMap** – Interaktive Standortkarte
+- **Legal Pages** – Impressum & Datenschutzerklärung
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+- **Framework:** React 19
+- **Build Tool:** Vite 7
+- **Styling:** Custom CSS mit CSS Variables
+- **i18n:** Custom LanguageContext
+- **Font:** Inter (Google Fonts)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📦 Installation
+
+\`\`\`bash
+# Repository klonen
+git clone https://github.com/mikegehrke/mg-digital-solutions.git
+
+# In das Verzeichnis wechseln
+cd mg-digital-solutions
+
+# Dependencies installieren
+npm install
+
+# Entwicklungsserver starten
+npm run dev
+\`\`\`
+
+## 🏗️ Build
+
+\`\`\`bash
+# Produktions-Build erstellen
+npm run build
+
+# Build lokal testen
+npm run preview
+\`\`\`
+
+## 📁 Projektstruktur
+
+\`\`\`
+src/
+├── components/
+│   ├── demos/           # 4 interaktive Demo-Komponenten
+│   ├── Header.jsx       # Navigation mit Sprachumschaltung
+│   ├── Hero.jsx         # Hero-Bereich
+│   ├── Services.jsx     # Leistungen
+│   ├── Demos.jsx        # Demo-Showcase
+│   ├── WhyMe.jsx        # Vorteile
+│   ├── Process.jsx      # Ablauf
+│   ├── Contact.jsx      # Kontaktformular + Karte
+│   ├── Footer.jsx       # Footer mit Links
+│   ├── Imprint.jsx      # Impressum
+│   └── Privacy.jsx      # Datenschutz
+├── context/
+│   └── LanguageContext.jsx  # Mehrsprachigkeit (DE/EN)
+├── App.jsx
+├── App.css
+├── index.css
+└── main.jsx
+\`\`\`
+
+## 🌐 Live Demo
+
+Die Website kann lokal unter \`http://localhost:5173\` aufgerufen werden.
+
+## 📞 Kontakt
+
+- **E-Mail:** mikegehrke@gmx.com
+- **Telefon:** +49 163 267 0137
+- **Standort:** Köln, Deutschland
+
+## 📄 Lizenz
+
+MIT License – Siehe [LICENSE](LICENSE) für Details.
+
+---
+
+Made with ❤️ by Mike Gehrke
