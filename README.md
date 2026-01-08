@@ -4,7 +4,7 @@ Professionelle Marketing-Website für digitale Dienstleistungen – Webseiten, W
 
 ![Vite](https://img.shields.io/badge/Vite-7.x-646CFF?logo=vite&logoColor=white)
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+![License](https://img.shields.io/badge/License-Proprietary-red)
 
 ## 🚀 Features
 
@@ -91,7 +91,10 @@ Die Website kann lokal unter \`http://localhost:5173\` aufgerufen werden.
 
 ## 📄 Lizenz
 
-MIT License – Siehe [LICENSE](LICENSE) für Details.
+**Proprietär** – Alle Rechte vorbehalten. Siehe [LICENSE](LICENSE) für Details.
+
+Kopieren, Klonen oder Nutzung ohne Genehmigung ist nicht gestattet.
+Bei Interesse an einer Lizenzierung: mikegehrke@gmx.com
 
 ---
 
