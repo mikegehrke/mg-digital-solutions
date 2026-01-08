@@ -1,0 +1,124 @@
+.demos {
+  background: var(--color-bg);
+}
+
+.demos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.demos-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.demo-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  padding: 16px 24px;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  text-align: left;
+}
+
+.demo-tab:hover {
+  border-color: var(--color-border-light);
+  background: var(--color-bg-tertiary);
+}
+
+.demo-tab.active {
+  border-color: var(--color-accent);
+  background: var(--color-accent-light);
+}
+
+.demo-tab-category {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+}
+
+.demo-tab.active .demo-tab-category {
+  color: var(--color-accent);
+}
+
+.demo-tab-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.demos-content {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+
+.demo-info {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 32px;
+  background: var(--color-bg-tertiary);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.demo-info h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.demo-info p {
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.demo-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-accent);
+  background: var(--color-accent-light);
+  padding: 6px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.demo-viewport {
+  min-height: 500px;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .demos-tabs {
+    flex-direction: column;
+  }
+  
+  .demo-tab {
+    width: 100%;
+  }
+  
+  .demo-info {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 20px;
+  }
+  
+  .demo-viewport {
+    min-height: 400px;
+  }
+}

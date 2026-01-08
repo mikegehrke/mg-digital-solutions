@@ -1,0 +1,380 @@
+/* Theme Toggle */
+.webapp-theme-toggle {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.webapp-theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+.webapp-demo {
+  position: relative;
+  display: flex;
+  min-height: 500px;
+  background: var(--webapp-bg);
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+}
+
+/* Dark Theme (default) */
+.webapp-demo.dark {
+  --webapp-bg: #0f172a;
+  --webapp-sidebar: #1e293b;
+  --webapp-border: #334155;
+  --webapp-text: #f8fafc;
+  --webapp-text-muted: #94a3b8;
+  --webapp-card: #1e293b;
+}
+
+/* Light Theme */
+.webapp-demo.light {
+  --webapp-bg: #f1f5f9;
+  --webapp-sidebar: #fff;
+  --webapp-border: #e2e8f0;
+  --webapp-text: #0f172a;
+  --webapp-text-muted: #64748b;
+  --webapp-card: #fff;
+}
+
+.webapp-demo.light .webapp-theme-toggle {
+  background: rgba(0,0,0,0.1);
+}
+
+/* Sidebar */
+.webapp-sidebar {
+  width: 200px;
+  background: var(--webapp-sidebar);
+  border-right: 1px solid var(--webapp-border);
+  padding: 20px 12px;
+  flex-shrink: 0;
+}
+
+.webapp-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  color: var(--webapp-text);
+}
+
+.webapp-logo-icon {
+  font-size: 20px;
+}
+
+.webapp-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.webapp-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--webapp-text-muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+
+.webapp-nav-item:hover {
+  background: var(--webapp-border);
+  color: var(--webapp-text);
+}
+
+.webapp-nav-item.active {
+  background: #3b82f6;
+  color: #fff;
+}
+
+/* Main Content */
+.webapp-main {
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.webapp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.webapp-header h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--webapp-text);
+}
+
+.webapp-add-btn {
+  padding: 10px 16px;
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.webapp-add-btn:hover {
+  background: #2563eb;
+}
+
+/* Dashboard */
+.webapp-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.webapp-stat-card {
+  background: var(--webapp-card);
+  border: 1px solid var(--webapp-border);
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-number {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--webapp-text);
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--webapp-text-muted);
+}
+
+.webapp-recent h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--webapp-text);
+  margin-bottom: 16px;
+}
+
+.webapp-appointments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.webapp-appointment-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 16px;
+  background: var(--webapp-card);
+  border: 1px solid var(--webapp-border);
+  border-radius: 8px;
+}
+
+.apt-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.apt-name {
+  font-weight: 500;
+  color: var(--webapp-text);
+}
+
+.apt-service {
+  font-size: 12px;
+  color: var(--webapp-text-muted);
+}
+
+.apt-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 12px;
+  color: var(--webapp-text-muted);
+}
+
+.apt-status {
+  padding: 4px 10px;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.apt-status.confirmed {
+  background: rgba(34, 197, 94, 0.15);
+  color: #22c55e;
+}
+
+.apt-status.pending {
+  background: rgba(234, 179, 8, 0.15);
+  color: #eab308;
+}
+
+/* Appointments Table */
+.webapp-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.webapp-table th,
+.webapp-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--webapp-border);
+}
+
+.webapp-table th {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--webapp-text-muted);
+  text-transform: uppercase;
+}
+
+.webapp-table td {
+  color: var(--webapp-text);
+}
+
+.apt-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.apt-actions button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--webapp-border);
+  background: var(--webapp-card);
+  border-radius: 4px;
+  color: var(--webapp-text-muted);
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.apt-actions button:hover {
+  background: #334155;
+  color: #fff;
+}
+
+/* Modal */
+.webapp-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.webapp-modal {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 24px;
+  width: 320px;
+}
+
+.webapp-modal h2 {
+  font-size: 16px;
+  color: #f8fafc;
+  margin-bottom: 20px;
+}
+
+.webapp-modal form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.webapp-modal input,
+.webapp-modal select {
+  padding: 10px 12px;
+  background: #0f172a;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #f8fafc;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.webapp-modal input:focus,
+.webapp-modal select:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.modal-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn-cancel {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  color: #94a3b8;
+  cursor: pointer;
+}
+
+.btn-confirm {
+  flex: 1;
+  padding: 10px;
+  background: #3b82f6;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .webapp-sidebar {
+    width: 60px;
+    padding: 16px 8px;
+  }
+  
+  .webapp-logo span,
+  .webapp-nav-item span:not(.webapp-logo-icon) {
+    display: none;
+  }
+  
+  .webapp-nav-item {
+    justify-content: center;
+    padding: 12px;
+  }
+  
+  .webapp-stats {
+    grid-template-columns: 1fr;
+  }
+}
