@@ -1,11 +1,11 @@
 .pricing-builder {
-  background: var(--bg-primary);
+  background: var(--color-bg);
   position: relative;
   overflow: hidden;
 }
 
 .pricing-title {
-  background: linear-gradient(135deg, var(--text-primary) 0%, #8b5cf6 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -75,8 +75,8 @@
   align-items: center;
   gap: 1rem;
   padding: 1.25rem;
-  background: var(--bg-secondary);
-  border: 2px solid var(--border-color);
+  background: var(--color-bg-secondary);
+  border: 2px solid var(--color-border);
   border-radius: 16px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -107,7 +107,7 @@
 .package-check .checkbox {
   width: 28px;
   height: 28px;
-  border: 2px solid var(--border-color);
+  border: 2px solid var(--color-border);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -129,7 +129,7 @@
 
 .package-name {
   font-weight: 600;
-  color: var(--text-primary);
+  color: var(--color-text);
   font-size: 1rem;
 }
 
@@ -139,7 +139,7 @@
   gap: 2rem;
   margin-top: 0.5rem;
   padding-top: 0.75rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--color-border);
 }
 
 .price-market, .price-my {
@@ -150,7 +150,7 @@
 
 .price-label {
   font-size: 0.75rem;
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -162,7 +162,7 @@
 
 .price-value.strikethrough {
   text-decoration: line-through;
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
 }
 
 .price-value.highlight {
@@ -171,8 +171,8 @@
 
 /* Total Section */
 .pricing-total {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border-color);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
   border-radius: 20px;
   padding: 2rem;
   text-align: center;
@@ -194,7 +194,7 @@
 
 .total-label {
   font-size: 0.85rem;
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
 }
 
 .total-value {
@@ -203,7 +203,7 @@
 }
 
 .total-item.market .total-value {
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
   text-decoration: line-through;
 }
 
@@ -216,7 +216,7 @@
 
 .total-arrow {
   font-size: 1.5rem;
-  color: var(--text-tertiary);
+  color: var(--color-text-muted);
 }
 
 .total-savings {
@@ -231,7 +231,7 @@
 }
 
 .total-savings .savings-label {
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
 }
 
 .total-savings .savings-amount {
@@ -258,10 +258,19 @@
 .pricing-disclaimer {
   margin-top: 1.25rem;
   font-size: 0.8rem;
-  color: var(--text-tertiary);
+  color: rgba(139, 92, 246, 0.85);
   text-align: center;
   line-height: 1.5;
   font-style: italic;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.pricing-disclaimer .disclaimer-icon {
+  font-style: normal;
+  font-size: 1rem;
 }
 
 /* Responsive */

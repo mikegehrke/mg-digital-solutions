@@ -201,7 +201,7 @@ function PricingBuilder() {
               <button className="btn btn-primary pricing-cta" onClick={scrollToContact}>
                 {text.cta}
               </button>
-              <p className="pricing-disclaimer">{text.disclaimer}</p>
+              <p className="pricing-disclaimer"><span className="disclaimer-icon">ℹ️</span> {text.disclaimer}</p>
             </div>
           )}
         </div>

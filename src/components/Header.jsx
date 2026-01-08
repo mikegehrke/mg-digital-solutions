@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLanguage } from '../context/LanguageContext'
+import { useTheme } from '../context/ThemeContext'
 import './Header.css'
 
 function Header() {
@@ -7,6 +8,7 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const { language, toggleLanguage, t } = useLanguage()
+  const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,9 +58,22 @@ function Header() {
           <button className={`nav-link ${activeSection === 'demos' ? 'active' : ''}`} onClick={() => scrollToSection('demos')}>{t('nav.demos')}</button>
           <button className={`nav-link ${activeSection === 'process' ? 'active' : ''}`} onClick={() => scrollToSection('process')}>{t('nav.process')}</button>
           <button className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={() => scrollToSection('contact')}>{t('nav.contact')}</button>
+          
+          {/* Mobile Toggles */}
+          <div className="mobile-toggles">
+            <button className="mobile-theme-toggle" onClick={toggleTheme}>
+              {theme === 'dark' ? '☀️ Light Mode' : '🌙 Dark Mode'}
+            </button>
+            <button className="mobile-lang-toggle" onClick={toggleLanguage}>
+              🌐 {language === 'de' ? 'English' : 'Deutsch'}
+            </button>
+          </div>
         </nav>
 
         <div className="header-actions">
+          <button className="theme-toggle" onClick={toggleTheme} title={theme === 'dark' ? 'Light Mode' : 'Dark Mode'}>
+            {theme === 'dark' ? '☀️' : '🌙'}
+          </button>
           <button className="lang-toggle" onClick={toggleLanguage} title="Switch Language">
             {language === 'de' ? 'EN' : 'DE'}
           </button>

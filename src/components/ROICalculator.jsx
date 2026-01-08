@@ -240,7 +240,7 @@ function ROICalculator() {
               </button>
             </div>
           </div>
-          <p className="roi-disclaimer">{text.disclaimer}</p>
+          <p className="roi-disclaimer"><span className="disclaimer-icon">ℹ️</span> {text.disclaimer}</p>
         </div>
       </div>
     </section>

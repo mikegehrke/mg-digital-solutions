@@ -1,11 +1,11 @@
 .efficiency-comparison {
-  background: var(--bg-secondary);
+  background: var(--color-bg-secondary);
   position: relative;
   overflow: hidden;
 }
 
 .efficiency-title {
-  background: linear-gradient(135deg, #ef4444 0%, #8b5cf6 50%, #22c55e 100%);
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #22c55e 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -24,10 +24,10 @@
 .efficiency-toggle {
   display: flex;
   gap: 1rem;
-  background: var(--bg-primary);
+  background: var(--color-bg);
   padding: 0.5rem;
   border-radius: 16px;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--color-border);
 }
 
 .toggle-btn {
@@ -41,12 +41,12 @@
   cursor: pointer;
   font-size: 1rem;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--color-text-secondary);
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .toggle-btn:hover {
-  color: var(--text-primary);
+  color: var(--color-text);
 }
 
 .toggle-btn.active {
@@ -81,8 +81,8 @@
 /* Display Area */
 .efficiency-display {
   width: 100%;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
   border-radius: 20px;
   padding: 2rem;
   position: relative;
@@ -132,7 +132,7 @@
 
 .manual-item {
   background: rgba(239, 68, 68, 0.08);
-  color: var(--text-primary);
+  color: var(--color-text);
 }
 
 .manual-item .item-icon {
@@ -141,7 +141,7 @@
 
 .auto-item {
   background: rgba(34, 197, 94, 0.08);
-  color: var(--text-primary);
+  color: var(--color-text);
 }
 
 .auto-item .item-icon {
@@ -156,13 +156,13 @@
   gap: 1rem;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--border-color);
+  border-top: 1px solid var(--color-border);
 }
 
 .time-bar {
   flex: 1;
   height: 8px;
-  background: var(--bg-tertiary);
+  background: var(--color-bg-tertiary);
   border-radius: 4px;
   overflow: hidden;
 }

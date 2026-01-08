@@ -9,11 +9,12 @@
 }
 
 .header-scrolled {
-  background: rgba(10, 10, 11, 0.9);
+  background: var(--color-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
   padding: 16px 0;
+  box-shadow: var(--shadow-sm);
 }
 
 .header-container {
@@ -125,6 +126,25 @@
   gap: 12px;
 }
 
+.theme-toggle {
+  padding: 8px 10px;
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle:hover {
+  background: var(--color-bg-card);
+  border-color: var(--color-border-light);
+  transform: rotate(15deg);
+}
+
 .lang-toggle {
   padding: 8px 12px;
   background: var(--color-bg-tertiary);
@@ -183,6 +203,11 @@
   transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Hide mobile toggles on desktop */
+.mobile-toggles {
+  display: none;
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .nav {
@@ -219,6 +244,62 @@
 
   .mobile-menu-btn {
     display: flex;
+  }
+
+  /* Mobile Toggles Container */
+  .mobile-toggles {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  /* Mobile Theme Toggle */
+  .mobile-theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 14px;
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .mobile-theme-toggle:hover {
+    background: var(--color-bg-card);
+    border-color: var(--color-border-light);
+  }
+
+  /* Mobile Language Toggle */
+  .mobile-lang-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 14px;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .mobile-lang-toggle:hover {
+    background: rgba(139, 92, 246, 0.2);
   }
 }
 
