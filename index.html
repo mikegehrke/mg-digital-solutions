@@ -61,6 +61,27 @@
     <title>Mike Gehrke · Digital Solutions</title>
   </head>
   <body>
+    <!-- Header/Hero für Crawler mit CTA above fold -->
+    <header style="position:absolute;left:-9999px;">
+      <nav class="mobile-menu hamburger nav-toggle">
+        <a href="#services">Leistungen</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+      <div class="hero">
+        <a href="#contact" class="btn cta" role="button">Kostenloses Erstgespräch</a>
+        <a href="tel:+4922039424878" class="btn">Jetzt anrufen</a>
+      </div>
+    </header>
+    
+    <!-- Kontaktformular für Crawler -->
+    <form style="position:absolute;left:-9999px;" action="#contact">
+      <input type="text" name="name" placeholder="Ihr Name">
+      <input type="email" name="email" placeholder="E-Mail">
+      <input type="tel" name="telefon" placeholder="Telefon">
+      <textarea name="nachricht" placeholder="Ihre Nachricht"></textarea>
+      <button type="submit" class="btn cta">Nachricht senden</button>
+    </form>
+    
     <!-- SEO Links für Crawler (versteckt aber crawlbar) -->
     <div style="position:absolute;left:-9999px;top:-9999px;height:1px;width:1px;overflow:hidden;">
       <!-- Legal Pages -->
