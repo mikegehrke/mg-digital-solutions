@@ -10,10 +10,12 @@ import EfficiencyComparison from './components/EfficiencyComparison'
 import Demos from './components/Demos'
 import WhyMe from './components/WhyMe'
 import Process from './components/Process'
+import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Imprint from './components/Imprint'
 import Privacy from './components/Privacy'
+import WhatsAppButton from './components/WhatsAppButton'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -56,6 +58,7 @@ function App() {
           <EfficiencyComparison />
           <Demos />
           <WhyMe />
+          <Testimonials />
           <Process />
           <Contact />
         </main>
@@ -63,6 +66,7 @@ function App() {
       {currentPage === 'imprint' && <Imprint onBack={goToHome} />}
       {currentPage === 'privacy' && <Privacy onBack={goToHome} />}
       <Footer />
+      <WhatsAppButton />
     </LanguageProvider>
   )
 }

@@ -22,15 +22,17 @@ function Imprint({ onBack }) {
           <p>
             Mike Gehrke<br />
             Digital Solutions<br />
-            Köln, Deutschland
+            Adolf-Kalsbach-Straße 40A<br />
+            51147 Köln<br />
+            Deutschland
           </p>
         </section>
 
         <section className="legal-section">
           <h2>{imprint.contact}</h2>
           <p>
-            {imprint.phone}: <a href="tel:+4901632670137">+49 163 267 0137</a><br />
-            {imprint.email}: <a href="mailto:mikegehrke@gmx.com">mikegehrke@gmx.com</a>
+            {imprint.phone}: <a href="tel:+4922039424878">+49 2203 9424878</a><br />
+            {imprint.email}: <a href="mailto:gehrkemike2@gmail.com">hallo@mg-digital-solutions.de</a>
           </p>
         </section>
 
@@ -38,7 +40,8 @@ function Imprint({ onBack }) {
           <h2>{imprint.responsible}</h2>
           <p>
             Mike Gehrke<br />
-            Köln, Deutschland
+            Adolf-Kalsbach-Straße 40A<br />
+            51147 Köln
           </p>
         </section>
 

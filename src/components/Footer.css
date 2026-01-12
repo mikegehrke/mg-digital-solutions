@@ -60,6 +60,36 @@
   font-size: 14px;
   color: var(--color-text-secondary);
   line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+/* Footer Contact Info */
+.footer-contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  transition: color var(--transition-fast);
+}
+
+a.footer-contact-item:hover {
+  color: var(--color-accent);
+}
+
+.footer-contact-item svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+}
+
+.footer-address {
+  margin-top: 4px;
 }
 
 /* Footer Links */

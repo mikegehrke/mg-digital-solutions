@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useForm, ValidationError } from '@formspree/react'
 import { useLanguage } from '../context/LanguageContext'
 import './Contact.css'
 
@@ -32,35 +33,8 @@ function Contact() {
   const [infoRef, infoVisible] = useScrollAnimation()
   const [formRef, formVisible] = useScrollAnimation()
   
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
-  })
-  const [status, setStatus] = useState(null)
-  const [loading, setLoading] = useState(false)
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setLoading(true)
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    setStatus('success')
-    setLoading(false)
-    setFormData({ name: '', email: '', message: '' })
-    
-    // Reset status after 5 seconds
-    setTimeout(() => setStatus(null), 5000)
-  }
+  // Formspree integration
+  const [state, handleSubmit] = useForm("mkoowolk")
 
   return (
     <section className="section contact" id="contact">
@@ -86,7 +60,7 @@ function Contact() {
                 </div>
                 <div>
                   <span className="contact-item-label">{c.email || 'E-Mail'}</span>
-                  <a href="mailto:mikegehrke@gmx.com" className="contact-item-value">mikegehrke@gmx.com</a>
+                  <a href="mailto:gehrkemike2@gmail.com" className="contact-item-value">hallo@mg-digital-solutions.de</a>
                 </div>
               </div>
               
@@ -98,7 +72,7 @@ function Contact() {
                 </div>
                 <div>
                   <span className="contact-item-label">{c.phone || 'Telefon'}</span>
-                  <a href="tel:+491632670137" className="contact-item-value">+49 163 267 0137</a>
+                  <a href="tel:+4922039424878" className="contact-item-value">+49 2203 9424878</a>
                 </div>
               </div>
               
@@ -148,17 +122,19 @@ function Contact() {
             className={`contact-form-wrapper animate-on-scroll from-right ${formVisible ? 'visible' : ''}`}
           >
             <form className="contact-form" onSubmit={handleSubmit}>
+              {/* Hidden field für Betreff */}
+              <input type="hidden" name="_subject" value="Neue Anfrage über Website" />
+              
               <div className="form-group">
                 <label htmlFor="name">{f.name || 'Name'}</label>
                 <input
                   type="text"
                   id="name"
                   name="name"
-                  value={formData.name}
-                  onChange={handleChange}
                   placeholder={f.namePlaceholder || 'Ihr Name'}
                   required
                 />
+                <ValidationError prefix="Name" field="name" errors={state.errors} />
               </div>
               
               <div className="form-group">
@@ -167,11 +143,10 @@ function Contact() {
                   type="email"
                   id="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleChange}
                   placeholder={f.emailPlaceholder || 'ihre@email.de'}
                   required
                 />
+                <ValidationError prefix="Email" field="email" errors={state.errors} />
               </div>
               
               <div className="form-group">
@@ -179,20 +154,19 @@ function Contact() {
                 <textarea
                   id="message"
                   name="message"
-                  value={formData.message}
-                  onChange={handleChange}
                   placeholder={f.messagePlaceholder || 'Beschreiben Sie kurz Ihr Projekt oder Ihre Anforderungen...'}
                   rows="5"
                   required
                 />
+                <ValidationError prefix="Message" field="message" errors={state.errors} />
               </div>
               
               <button 
                 type="submit" 
-                className={`btn btn-primary btn-submit ${loading ? 'loading' : ''}`}
-                disabled={loading}
+                className={`btn btn-primary btn-submit ${state.submitting ? 'loading' : ''}`}
+                disabled={state.submitting}
               >
-                {loading ? (
+                {state.submitting ? (
                   <>
                     <span className="spinner"></span>
                     {f.sending || 'Wird gesendet...'}
@@ -208,7 +182,7 @@ function Contact() {
                 )}
               </button>
               
-              {status === 'success' && (
+              {state.succeeded && (
                 <div className="form-success">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>

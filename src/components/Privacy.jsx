@@ -30,9 +30,11 @@ function Privacy({ onBack }) {
             <p>
               <strong>Mike Gehrke</strong><br />
               Digital Solutions<br />
-              Köln, Deutschland<br />
-              E-Mail: <a href="mailto:mikegehrke@gmx.com">mikegehrke@gmx.com</a><br />
-              Telefon: <a href="tel:+4901632670137">+49 163 267 0137</a>
+              Adolf-Kalsbach-Straße 40A<br />
+              51147 Köln<br />
+              Deutschland<br />
+              E-Mail: <a href="mailto:gehrkemike2@gmail.com">hallo@mg-digital-solutions.de</a><br />
+              Telefon: <a href="tel:+4922039424878">+49 2203 9424878</a>
             </p>
           </div>
         </section>
