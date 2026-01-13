@@ -16,6 +16,7 @@ import Footer from './components/Footer'
 import Imprint from './components/Imprint'
 import Privacy from './components/Privacy'
 import WhatsAppButton from './components/WhatsAppButton'
+import WebCheckCTA from './components/WebCheckCTA'
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -53,6 +54,7 @@ function App() {
         <main>
           <Hero />
           <Services />
+          <WebCheckCTA />
           <PricingBuilder />
           <ROICalculator />
           <EfficiencyComparison />

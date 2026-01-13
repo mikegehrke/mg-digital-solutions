@@ -159,3 +159,18 @@ a.footer-contact-item:hover {
     text-align: center;
   }
 }
+
+/* WebCheck Link */
+.footer-webcheck-link {
+  color: var(--color-accent) !important;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+}
+
+.footer-webcheck-link:hover {
+  transform: translateX(4px);
+  text-shadow: 0 0 10px rgba(209, 255, 79, 0.5);
+}

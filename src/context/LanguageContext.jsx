@@ -249,6 +249,19 @@ const translations = {
       next: 'Weiter',
       submit: 'Anfrage senden'
     },
+    // WebCheck360 CTA
+    webcheck: {
+      badge: 'Neu',
+      title: 'Kostenloser Website-Check',
+      description: 'Erfahren Sie in 60 Sekunden, wie gut Ihre Website wirklich ist. Vollautomatische Analyse mit konkreten Verbesserungsvorschlägen.',
+      feature1: 'Analyse in unter 60 Sekunden',
+      feature2: 'Detaillierter Score für 5 Kategorien',
+      feature3: 'Konkrete Handlungsempfehlungen',
+      cta: 'Jetzt Website prüfen',
+      subtext: '100% kostenlos · Keine Registrierung nötig',
+      inline: 'Website-Check starten',
+      headerBtn: 'Website-Check'
+    },
     // Footer
     footer: {
       description: 'Individuelle Webseiten, Apps & digitale Tools für kleine Unternehmen und Selbstständige.',
@@ -552,6 +565,19 @@ const translations = {
       back: 'Back',
       next: 'Next',
       submit: 'Send Request'
+    },
+    // WebCheck360 CTA
+    webcheck: {
+      badge: 'New',
+      title: 'Free Website Check',
+      description: 'Find out in 60 seconds how good your website really is. Fully automated analysis with specific improvement suggestions.',
+      feature1: 'Analysis in under 60 seconds',
+      feature2: 'Detailed score for 5 categories',
+      feature3: 'Specific action recommendations',
+      cta: 'Check Website Now',
+      subtext: '100% free · No registration required',
+      inline: 'Start Website Check',
+      headerBtn: 'Website Check'
     },
     // Footer
     footer: {

@@ -5,6 +5,10 @@ function Footer() {
   const currentYear = new Date().getFullYear()
   const { t } = useLanguage()
 
+  const handleWebCheckClick = () => {
+    window.open('https://webcheck360.vercel.app', '_blank')
+  }
+
   const handleSectionClick = (e, sectionId) => {
     e.preventDefault()
     // Prüfen ob wir auf einer Legal-Seite sind
@@ -85,6 +89,7 @@ function Footer() {
                 <li><a href="#services" onClick={(e) => handleSectionClick(e, 'services')}>{t('footer.webapps')}</a></li>
                 <li><a href="#demos" onClick={(e) => handleSectionClick(e, 'demos')}>{t('footer.prototypes')}</a></li>
                 <li><a href="#services" onClick={(e) => handleSectionClick(e, 'services')}>{t('footer.automation')}</a></li>
+                <li><a href="#" onClick={(e) => { e.preventDefault(); handleWebCheckClick(); }} className="footer-webcheck-link">🔍 {t('webcheck.headerBtn')}</a></li>
               </ul>
             </div>
             
