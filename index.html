@@ -52,7 +52,112 @@
         "@type": "Country",
         "name": "Germany"
       },
-      "serviceType": ["Webentwicklung", "App-Entwicklung", "Digitale Tools", "Automatisierung"]
+      "serviceType": ["Webentwicklung", "App-Entwicklung", "Digitale Tools", "Automatisierung"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "23"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Digitale Dienstleistungen",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Website-Erstellung",
+              "description": "Moderne, responsive Webseiten für kleine Unternehmen"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web-App Entwicklung",
+              "description": "Individuelle Web-Anwendungen und Dashboards"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Automatisierung",
+              "description": "Workflow-Automatisierung und Prozessoptimierung"
+            }
+          }
+        ]
+      },
+      "potentialAction": [
+        {
+          "@type": "ContactAction",
+          "target": "https://www.mg-digital-solutions.de/#contact",
+          "name": "Kostenloses Erstgespräch vereinbaren"
+        },
+        {
+          "@type": "OrderAction",
+          "target": "https://www.mg-digital-solutions.de/#contact",
+          "name": "Projekt anfragen"
+        }
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+49-2203-9424878",
+        "contactType": "sales",
+        "availableLanguage": ["German", "English"]
+      }
+    }
+    </script>
+    
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Mike Gehrke · Digital Solutions",
+      "url": "https://www.mg-digital-solutions.de",
+      "description": "Webseiten, Apps & digitale Tools für kleine Unternehmen",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.mg-digital-solutions.de/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was kostet eine Website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine professionelle Website startet ab 499€. Der genaue Preis hängt vom Umfang und den gewünschten Funktionen ab. Nutzen Sie unseren Preisrechner für eine individuelle Kalkulation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie lange dauert die Erstellung einer Website?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Eine typische Landingpage ist in 1-2 Wochen fertig. Komplexere Projekte mit mehreren Seiten dauern 2-4 Wochen. Wir arbeiten schnell und effizient."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Bieten Sie auch Wartung und Support an?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja, wir bieten monatliche Wartungspakete ab 49€/Monat an, inklusive Updates, Backups und technischem Support."
+          }
+        }
+      ]
     }
     </script>
     
@@ -69,11 +174,15 @@
     <header style="position:absolute;left:-9999px;">
       <nav class="mobile-menu hamburger nav-toggle">
         <a href="#services">Leistungen</a>
+        <a href="#pricing">Preise</a>
+        <a href="#demos">Referenzen</a>
         <a href="#contact">Kontakt</a>
       </nav>
       <div class="hero">
-        <a href="#contact" class="btn cta" role="button">Kostenloses Erstgespräch</a>
-        <a href="tel:+4922039424878" class="btn">Jetzt anrufen</a>
+        <a href="#contact" class="btn cta cta-primary" role="button">🚀 Kostenloses Erstgespräch</a>
+        <a href="tel:+4922039424878" class="btn cta cta-secondary">📞 Jetzt anrufen: +49 2203 9424878</a>
+        <a href="https://wa.me/491632670137" class="btn cta cta-whatsapp">💬 WhatsApp schreiben</a>
+        <a href="#pricing" class="btn cta">💰 Preise ansehen</a>
       </div>
     </header>
     

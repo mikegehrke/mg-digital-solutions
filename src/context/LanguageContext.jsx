@@ -30,6 +30,7 @@ const translations = {
       label: 'Leistungen',
       title: 'Was ich für Sie baue',
       description: 'Digitale Lösungen, die funktionieren – ohne Schnickschnack, ohne Buzzwords.',
+      cta: 'Jetzt anfragen',
       items: [
         {
           title: 'Webseiten & Landingpages',
@@ -347,6 +348,7 @@ const translations = {
       label: 'Services',
       title: 'What I Build For You',
       description: 'Digital solutions that work – no fluff, no buzzwords.',
+      cta: 'Get started',
       items: [
         {
           title: 'Websites & Landing Pages',
