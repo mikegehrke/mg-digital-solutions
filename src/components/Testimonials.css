@@ -57,7 +57,7 @@
 .stat-card .stat-value {
   display: block;
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-accent);
   margin-bottom: 4px;
 }

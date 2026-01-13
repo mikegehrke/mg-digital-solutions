@@ -106,8 +106,24 @@
 }
 
 .webcheck-cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(209, 255, 79, 0.4);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 30px rgba(209, 255, 79, 0.5);
+  background: linear-gradient(135deg, #b8e63e 0%, var(--accent) 100%);
+}
+
+.webcheck-cta-button:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+/* Light mode specific button styles */
+[data-theme="light"] .webcheck-cta-button {
+  background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+  box-shadow: 0 4px 20px rgba(5, 150, 105, 0.3);
+}
+
+[data-theme="light"] .webcheck-cta-button:hover {
+  box-shadow: 0 8px 30px rgba(5, 150, 105, 0.5);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
 }
 
 .webcheck-cta-pulse {
@@ -161,6 +177,19 @@
   max-width: 400px;
   overflow: hidden;
   animation: float 6s ease-in-out infinite;
+  border: 1px solid var(--border-color);
+}
+
+/* Dark mode specific - lighter card background */
+[data-theme="dark"] .webcheck-mockup,
+:root .webcheck-mockup {
+  background: #1f1f23;
+  border: 1px solid #3f3f46;
+}
+
+[data-theme="light"] .webcheck-mockup {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
 }
 
 @keyframes float {
