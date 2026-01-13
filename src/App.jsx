@@ -1,22 +1,27 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import './App.css'
 import { LanguageProvider } from './context/LanguageContext'
 import Header from './components/Header'
 import Hero from './components/Hero'
-import Services from './components/Services'
-import PricingBuilder from './components/PricingBuilder'
-import ROICalculator from './components/ROICalculator'
-import EfficiencyComparison from './components/EfficiencyComparison'
-import Demos from './components/Demos'
-import WhyMe from './components/WhyMe'
-import Process from './components/Process'
-import Testimonials from './components/Testimonials'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import Imprint from './components/Imprint'
-import Privacy from './components/Privacy'
-import WhatsAppButton from './components/WhatsAppButton'
-import WebCheckCTA from './components/WebCheckCTA'
+
+// Lazy load components below the fold for better performance
+const Services = lazy(() => import('./components/Services'))
+const PricingBuilder = lazy(() => import('./components/PricingBuilder'))
+const ROICalculator = lazy(() => import('./components/ROICalculator'))
+const EfficiencyComparison = lazy(() => import('./components/EfficiencyComparison'))
+const Demos = lazy(() => import('./components/Demos'))
+const WhyMe = lazy(() => import('./components/WhyMe'))
+const Process = lazy(() => import('./components/Process'))
+const Testimonials = lazy(() => import('./components/Testimonials'))
+const Contact = lazy(() => import('./components/Contact'))
+const Footer = lazy(() => import('./components/Footer'))
+const Imprint = lazy(() => import('./components/Imprint'))
+const Privacy = lazy(() => import('./components/Privacy'))
+const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'))
+const WebCheckCTA = lazy(() => import('./components/WebCheckCTA'))
+
+// Loading fallback
+const LoadingFallback = () => <div style={{ minHeight: '100px' }} />
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
@@ -50,25 +55,27 @@ function App() {
   return (
     <LanguageProvider>
       <Header />
-      {currentPage === 'home' && (
-        <main>
-          <Hero />
-          <Services />
-          <WebCheckCTA />
-          <PricingBuilder />
-          <ROICalculator />
-          <EfficiencyComparison />
-          <Demos />
-          <WhyMe />
-          <Testimonials />
-          <Process />
-          <Contact />
-        </main>
-      )}
-      {currentPage === 'imprint' && <Imprint onBack={goToHome} />}
-      {currentPage === 'privacy' && <Privacy onBack={goToHome} />}
-      <Footer />
-      <WhatsAppButton />
+      <Suspense fallback={<LoadingFallback />}>
+        {currentPage === 'home' && (
+          <main>
+            <Hero />
+            <Services />
+            <WebCheckCTA />
+            <PricingBuilder />
+            <ROICalculator />
+            <EfficiencyComparison />
+            <Demos />
+            <WhyMe />
+            <Testimonials />
+            <Process />
+            <Contact />
+          </main>
+        )}
+        {currentPage === 'imprint' && <Imprint onBack={goToHome} />}
+        {currentPage === 'privacy' && <Privacy onBack={goToHome} />}
+        <Footer />
+        <WhatsAppButton />
+      </Suspense>
     </LanguageProvider>
   )
 }
