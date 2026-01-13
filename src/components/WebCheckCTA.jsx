@@ -5,7 +5,7 @@ function WebCheckCTA({ variant = 'section' }) {
   const { t } = useLanguage()
 
   const handleClick = () => {
-    window.open('https://webcheck360.vercel.app', '_blank')
+    window.open('https://webcheck360-de.vercel.app', '_blank')
   }
 
   if (variant === 'inline') {
