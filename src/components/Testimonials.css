@@ -11,12 +11,12 @@
 .testimonials .section-badge {
   display: inline-block;
   padding: 8px 16px;
-  background: rgba(16, 185, 129, 0.2);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 100px;
   font-size: 14px;
-  font-weight: 700;
-  color: #4ade80;
+  font-weight: 600;
+  color: #22c55e;
   margin-bottom: 16px;
 }
 
