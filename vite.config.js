@@ -8,21 +8,9 @@ export default defineConfig({
     // Optimize chunk splitting
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          // Split vendor code
-          if (id.includes('node_modules')) {
-            if (id.includes('react') || id.includes('react-dom')) {
-              return 'vendor-react'
-            }
-            if (id.includes('@formspree')) {
-              return 'vendor-formspree'
-            }
-            return 'vendor'
-          }
-          // Split components by folder
-          if (id.includes('/components/demos/')) {
-            return 'demos'
-          }
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          forms: ['@formspree/react'],
         },
       },
     },
@@ -35,6 +23,6 @@ export default defineConfig({
     // Enable source maps for debugging
     sourcemap: false,
     // Reduce chunk size warning limit
-    chunkSizeWarningLimit: 500,
+    chunkSizeWarningLimit: 600,
   },
 })
