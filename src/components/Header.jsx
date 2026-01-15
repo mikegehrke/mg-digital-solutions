@@ -12,18 +12,25 @@ function Header() {
 
   useEffect(() => {
     let ticking = false
-    let lastScrollY = 0
     
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      
-      // Nur bei signifikanten Änderungen aktualisieren
-      if (Math.abs(currentScrollY - lastScrollY) < 10) return
-      
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setScrolled(currentScrollY > 50)
-          lastScrollY = currentScrollY
+          setScrolled(window.scrollY > 50)
+          
+          // Track active section
+          const sections = ['services', 'demos', 'process', 'contact']
+          for (const section of sections) {
+            const element = document.getElementById(section)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              if (rect.top <= 150 && rect.bottom >= 150) {
+                setActiveSection(section)
+                break
+              }
+            }
+          }
+          
           ticking = false
         })
         ticking = true
