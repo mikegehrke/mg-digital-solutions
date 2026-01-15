@@ -20,25 +20,58 @@ const Privacy = lazy(() => import('./components/Privacy'))
 const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'))
 const WebCheckCTA = lazy(() => import('./components/WebCheckCTA'))
 
-// Loading fallback
-const LoadingFallback = () => <div style={{ minHeight: '100px' }} />
+// Loading fallback optimized for CLS prevention
+const LoadingFallback = () => (
+  <div 
+    style={{ 
+      minHeight: '100px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'var(--color-bg-card)',
+      borderRadius: '8px',
+      margin: '16px 0'
+    }}
+    aria-live="polite"
+    role="status"
+  >
+    <span className="sr-only">Lädt...</span>
+    <div className="loading-spinner" />
+  </div>
+)
 
 function App() {
   const [currentPage, setCurrentPage] = useState('home')
 
   useEffect(() => {
-    // Handle hash routing
+    // Handle hash routing with performance tracking
     const handleHashChange = () => {
       const hash = window.location.hash.slice(1)
+      
+      // Track route changes for analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('config', 'GA_MEASUREMENT_ID', {
+          page_path: hash ? `/#${hash}` : '/',
+        });
+      }
+      
       if (hash === 'impressum' || hash === 'imprint') {
         setCurrentPage('imprint')
-        window.scrollTo(0, 0)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (hash === 'datenschutz' || hash === 'privacy') {
         setCurrentPage('privacy')
-        window.scrollTo(0, 0)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       } else if (hash === '' || hash === 'home') {
         setCurrentPage('home')
       }
+      
+      // Update document title for better SEO
+      const titles = {
+        'imprint': 'Impressum · Mike Gehrke Digital Solutions',
+        'privacy': 'Datenschutz · Mike Gehrke Digital Solutions',
+        'home': 'Mike Gehrke · Digital Solutions'
+      }
+      document.title = titles[currentPage] || titles.home
     }
 
     handleHashChange()

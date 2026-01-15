@@ -126,7 +126,7 @@ function ROICalculator() {
                   </svg>
                 </div>
                 <div className="slider-info">
-                  <label>{text.teamSize}</label>
+                  <label htmlFor="team-size-slider">{text.teamSize}</label>
                   <span className="slider-desc">{text.teamSizeDesc}</span>
                 </div>
                 <span className="slider-value">{teamSize}</span>
@@ -138,6 +138,8 @@ function ROICalculator() {
                 value={teamSize}
                 onChange={(e) => setTeamSize(Number(e.target.value))}
                 className="slider"
+                id="team-size-slider"
+                aria-label={text.teamSize}
               />
             </div>
 
@@ -150,7 +152,7 @@ function ROICalculator() {
                   </svg>
                 </div>
                 <div className="slider-info">
-                  <label>{text.manualHours}</label>
+                  <label htmlFor="manual-hours-slider">{text.manualHours}</label>
                   <span className="slider-desc">{text.manualHoursDesc}</span>
                 </div>
                 <span className="slider-value">{manualHours}h</span>
@@ -162,6 +164,8 @@ function ROICalculator() {
                 value={manualHours}
                 onChange={(e) => setManualHours(Number(e.target.value))}
                 className="slider"
+                id="manual-hours-slider"
+                aria-label={text.manualHours}
               />
             </div>
 
@@ -174,7 +178,7 @@ function ROICalculator() {
                   </svg>
                 </div>
                 <div className="slider-info">
-                  <label>{text.hourlyRate}</label>
+                  <label htmlFor="hourly-rate-slider">{text.hourlyRate}</label>
                   <span className="slider-desc">{text.hourlyRateDesc}</span>
                 </div>
                 <span className="slider-value">€{hourlyRate}</span>
@@ -187,6 +191,8 @@ function ROICalculator() {
                 value={hourlyRate}
                 onChange={(e) => setHourlyRate(Number(e.target.value))}
                 className="slider"
+                id="hourly-rate-slider"
+                aria-label={text.hourlyRate}
               />
             </div>
           </div>
@@ -199,7 +205,7 @@ function ROICalculator() {
                   <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
                 </svg>
               </div>
-              <h4>{text.currentDrain}</h4>
+              <h3>{text.currentDrain}</h3>
               <div className="result-values">
                 <div className="result-row">
                   <span>{text.weekly}</span>
@@ -223,7 +229,7 @@ function ROICalculator() {
                   <polyline points="22 4 12 14.01 9 11.01"/>
                 </svg>
               </div>
-              <h4>{text.recovery}</h4>
+              <h3>{text.recovery}</h3>
               <p className="result-note">{text.automationSaves}</p>
               <div className="result-values">
                 <div className="result-row">

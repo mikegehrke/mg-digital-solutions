@@ -6,7 +6,7 @@ function Footer() {
   const { t } = useLanguage()
 
   const handleWebCheckClick = () => {
-    window.open('https://webcheck360.vercel.app', '_blank')
+    window.open('https://webcheck360.de', '_blank')
   }
 
   const handleSectionClick = (e, sectionId) => {
@@ -83,7 +83,7 @@ function Footer() {
           
           <div className="footer-links">
             <div className="footer-column">
-              <h4>{t('footer.services')}</h4>
+              <h3>{t('footer.services')}</h3>
               <ul>
                 <li><a href="#services" onClick={(e) => handleSectionClick(e, 'services')}>{t('footer.websites')}</a></li>
                 <li><a href="#services" onClick={(e) => handleSectionClick(e, 'services')}>{t('footer.webapps')}</a></li>
@@ -94,7 +94,7 @@ function Footer() {
             </div>
             
             <div className="footer-column">
-              <h4>{t('footer.legal')}</h4>
+              <h3>{t('footer.legal')}</h3>
               <ul>
                 <li><a href="/impressum.html">{t('footer.imprint')}</a></li>
                 <li><a href="/datenschutz.html">{t('footer.privacy')}</a></li>
