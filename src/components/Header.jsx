@@ -17,6 +17,20 @@ function Header() {
       if (!ticking) {
         window.requestAnimationFrame(() => {
           setScrolled(window.scrollY > 50)
+          
+          // Track active section
+          const sections = ['services', 'demos', 'process', 'contact']
+          for (const section of sections) {
+            const element = document.getElementById(section)
+            if (element) {
+              const rect = element.getBoundingClientRect()
+              if (rect.top <= 150 && rect.bottom >= 150) {
+                setActiveSection(section)
+                break
+              }
+            }
+          }
+          
           ticking = false
         })
         ticking = true
