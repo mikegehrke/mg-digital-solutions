@@ -115,7 +115,11 @@ a.footer-contact-item:hover {
 .footer-column a {
   font-size: 14px;
   color: var(--color-text-secondary);
-  transition: color var(--transition-fast);
+  transition: opacity var(--transition-fast);
+}
+
+.footer-column a:hover {
+  opacity: 0.7;
 }
 
 .footer-column a:hover {
