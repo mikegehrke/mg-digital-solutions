@@ -15,14 +15,12 @@
     
     <!-- Inline critical CSS for LCP -->
     <style>
-      :root{--color-bg:#0a0a0b;--color-bg-secondary:#111113;--color-text:#fafafa;--color-text-secondary:#a1a1aa;--color-accent:#10b981;--color-border:#27272a;--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--radius-md:10px;--color-accent-light:rgba(16,185,129,0.1)}
+      :root{--color-bg:#0a0a0b;--color-bg-secondary:#111113;--color-text:#fafafa;--color-text-secondary:#a1a1aa;--color-accent:#10b981;--color-border:#27272a;--font-sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;--radius-md:10px}
       *{box-sizing:border-box;margin:0;padding:0}
       body{margin:0;font-family:var(--font-sans);background:var(--color-bg);color:var(--color-text);line-height:1.6;overflow-x:hidden}
-      .hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 0 80px;overflow:hidden;contain:layout style}
-      .hero-container{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-      .hero-content{max-width:600px}
-      .hero-title{font-size:clamp(40px,6vw,64px);font-weight:700;line-height:1.1;letter-spacing:-0.02em;margin-bottom:24px}
-      .hero-subtitle{font-size:18px;line-height:1.7;color:var(--color-text-secondary);margin-bottom:40px}
+      .hero{min-height:80vh;display:flex;align-items:center;padding:100px 0;background:var(--color-bg);contain:layout style}
+      .hero-title{font-size:clamp(32px,6vw,64px);font-weight:700;line-height:1.1;margin:0 0 20px;background:linear-gradient(135deg,#10b981 0%,#059669 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;contain:layout}
+      .hero-container{max-width:1200px;margin:0 auto;padding:0 24px}
       .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;font-size:16px;font-weight:600;border-radius:var(--radius-md);cursor:pointer;border:none;text-decoration:none;background:var(--color-accent);color:#000;min-height:48px}
       .header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,11,0.8);backdrop-filter:blur(12px);border-bottom:1px solid var(--color-border)}
       .container{max-width:1200px;margin:0 auto;padding:0 24px}
